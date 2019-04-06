@@ -2,7 +2,7 @@
 const debugMode = {
   on: false,
   //on: true,
-  depth: ['stateSetter', 'event', 'reaction', 'reactionComb'] // viewStateVal, registerObject
+  depth: ['stateSetter', 'event', 'reaction', 'reactionComb'] // chkSt, registerObject
 }
 const debugConsole = function(msg){
   if(debugMode.on){
@@ -27,11 +27,11 @@ export const registerObject = function(objName, initState){
   return objects[objName]
 }
 
-export const viewStateVal = function(objName, valName){
+export const chkSt = function(objName, valName){
   if(objects[objName]==null){
-    throw new Exception('No such object', objName, 'viewStateVal')
+    throw new Exception('No such object', objName, 'chkSt')
   }
-  debugConsole({event:'viewStateVal', objName: objName, valName: valName})
+  debugConsole({event:'chkSt', objName: objName, valName: valName})
   return objects[objName].state[valName]
 }
 
